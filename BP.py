@@ -12,6 +12,8 @@ PATTERN_NO = 4
 
 TRAINING_NO = 20000
 ERROR_MAX = 0.001
+v=[[]]
+w=[[]]
 
 e = math.e
 
@@ -28,7 +30,10 @@ def read_data(pattern_in, pattern_out):
     pass
 
 
-def init_w(v, w):
+def init_w():
+    global v, w
+    v = [[random.uniform(-0.5, 0.5) for _ in range(INPUT_UNIT_NO + 1)] for _ in range(HIDDEN_UNIT_NO)]
+    w = [[random.uniform(-0.5, 0.5) for _ in range(HIDDEN_UNIT_NO + 1)] for _ in range(OUTPUT_UNIT_NO)]
 
 
 def forward_propagation(p, v, w, pattern_in, h_out, o_out):
